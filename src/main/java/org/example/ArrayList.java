@@ -37,7 +37,7 @@ public class ArrayList<T> {
      * @param index   index at which to add the element
      * @param element element to be added
      */
-    public void add(int index, T element) {
+    public void addIndex(int index, T element) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index out of bounds " + index);
         }
@@ -138,7 +138,7 @@ public class ArrayList<T> {
     /**
      * Swaps an element
      */
-    private void swap(int i, int j) {
+    void swap(int i, int j) {
         Object temp = elements[i];
         elements[i] = elements[j];
         elements[j] = temp;
