@@ -38,6 +38,14 @@ class ArrayListTest {
 
         // We check that the received element matches the expected one
         assertEquals("third element", element);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.get(-1);
+        });
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.get(list.size()+2);
+        });
     }
 
     @Test
@@ -56,6 +64,14 @@ class ArrayListTest {
 
         // Checking list size
         assertEquals(0, list.size(), "The list size should be 0 after removing all elements");
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.remove(-1);
+        });
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.remove(list.size()+2);
+        });
     }
 
     @Test
