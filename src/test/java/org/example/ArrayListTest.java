@@ -129,4 +129,23 @@ class ArrayListTest {
         });
     }
 
+    @Test
+    public void addIndex() {
+        ArrayList<Object> list = new ArrayList<>();
+        list.add("first element");
+        list.add("second element");
+        list.add("third element");
+
+        // Add element "three" at index 2
+        list.addIndex(1, "fourth element");
+
+        // We expect the list to become ["first element", "second element", "third element", "fourth element"]
+        assertEquals(4, list.size());
+
+        // Verifying that items are ordered correctly after increasing capacity
+        assertEquals("first element", list.get(0));
+        assertEquals("fourth element", list.get(1));
+        assertEquals("second element", list.get(2));
+        assertEquals("third element", list.get(3));
+    }
 }
