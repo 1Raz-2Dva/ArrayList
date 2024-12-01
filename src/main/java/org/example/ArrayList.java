@@ -106,7 +106,7 @@ public class ArrayList<T> {
      * @param high       end index
      * @param comparator a comparator that determines the sort order
      */
-    private void quicksort(int low, int high, Comparator<? super T> comparator) {
+    public void quicksort(int low, int high, Comparator<? super T> comparator) {
         if (low < high) {
             int pivotIndex = partition(low, high, comparator);
             quicksort(low, pivotIndex - 1, comparator);
@@ -122,7 +122,7 @@ public class ArrayList<T> {
      * @param comparator a comparator that determines the sort order
      * @return delimiter index
      */
-    private int partition(int low, int high, Comparator<? super T> comparator) {
+    public int partition(int low, int high, Comparator<? super T> comparator) {
         T pivot = (T) elements[high]; // Take the last element as a reference
         int i = low - 1; // Index of the smaller element
         for (int j = low; j < high; j++) {

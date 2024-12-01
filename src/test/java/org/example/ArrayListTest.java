@@ -23,10 +23,6 @@ class ArrayListTest {
     }
 
     @Test
-    void addIndex() {
-    }
-
-    @Test
     void get() {
 
         // Create and fill ArrayList
@@ -64,7 +60,6 @@ class ArrayListTest {
 
     @Test
     void clear() {
-
         // Create and fill ArrayList
         ArrayList<String> list = new ArrayList<>();
         list.add("first element");
@@ -76,11 +71,39 @@ class ArrayListTest {
         // Checking that the list is not empty before clearing
         assertEquals(5, list.size());
 
-        // Вызываем метод clear
+        // Call the clear method
         list.clear();
 
-        // Проверяем, что размер списка стал 0
+        // Checking that the list size has become 0
         assertEquals(0, list.size());
+    }
+
+    @Test
+    public void SortComparator() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("second element");
+        list.add("first element");
+        list.add("third element");
+        list.sort(Comparator.reverseOrder());
+        assertEquals("third element", list.get(0));
+        assertEquals("second element", list.get(1));
+        assertEquals("first element", list.get(2));
+    }
+
+    @Test
+    void sort() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(2);
+        list.add(1);
+        list.add(5);
+        list.add(4);
+        list.sort(Comparator.naturalOrder());
+        assertEquals(1, list.get(0));
+        assertEquals(2, list.get(1));
+        assertEquals(3, list.get(2));
+        assertEquals(4, list.get(3));
+        assertEquals(5, list.get(4));
     }
 
     @Test
@@ -89,9 +112,21 @@ class ArrayListTest {
         list.add(1);
         list.add(2);
         list.add(3);
-        list.swap(0, 2); // Let's say the swap method is implemented
+        list.swap(0, 2);
         assertEquals(3, list.get(0));
         assertEquals(2, list.get(1));
         assertEquals(1, list.get(2));
     }
+
+    @Test
+    public void index() {
+        ArrayList<Object> list = new ArrayList<>();
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.addIndex(-1, 5);
+        });
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.addIndex(5, 5);
+        });
+    }
+
 }
